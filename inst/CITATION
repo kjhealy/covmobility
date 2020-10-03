@@ -1,0 +1,15 @@
+citHeader("To cite the package `covmobility` in publications use:")
+
+citEntry(
+  entry    = "manual",
+  title    = "covmobility: Mobility Data from Apple and Google",
+  author   = person(given = "Kieran",
+                      family = "Healy",
+                      role = c("aut", "cre"),
+                      email = "kieran.healy@duke.edu"),
+  year     = "2020",
+  note = "R package version 0.1.0",
+  url      = "http://kjhealy.github.io/covmobility",
+  textVersion = paste("Kieran Healy. 2020. covmobility: Mobility Data from Apple and Google. R package version 0.1.0, <http://kjhealy.github.io/covmobility>."
+  )
+)

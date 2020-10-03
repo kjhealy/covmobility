@@ -1,0 +1,47 @@
+---
+title: "Summary Codebook"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Summary Codebook}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(covdata)
+```
+
+## Overview of Included Tables
+
+This vignette provides an overview of the contents of each table of data in the package. For further details on the variables, consult each table's help page. Note that many of these data tables are provisional, or are estimates subject to significant interpretive limits. _Read the supplied documentation carefully before working with any of the tables_.
+
+
+## Mobility Data from [Apple](http://apple.com/covid19) 
+
+```{r}
+skimr::skim(apple_mobility)
+```
+
+## Mobilty Data from [Google](https://www.google.com/covid19/mobility/data_documentation.html) 
+
+```{r}
+skimr::skim(google_mobility)
+```
+
+## Other Tables
+
+### Country Codes
+
+```{r}
+country_codes %>%
+  dplyr::ungroup() %>%
+  skimr::skim()
+```
+

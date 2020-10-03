@@ -1,0 +1,108 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# covmobility <img src="man/figures/hex-covmobility.png" align="right" width="240">
+
+<!-- badges: start -->
+[![R build status](https://github.com/kjhealy/covmobility/workflows/R-CMD-check/badge.svg)](https://github.com/kjhealy/covmobility/actions) 
+<!-- badges: end -->
+
+## About the package
+
+`covmobility` is a data package for R that collects and bundles datasets related to [the COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) released by Apple and Google. The data are current as of `r format(Sys.Date(), "%A, %B %e, %Y")`. Minimal post-processing of the data has been done in comparison to the original sources, beyond conversion to [tibbles](https://tibble.tidyverse.org) and transformation into [narrow](https://en.wikipedia.org/wiki/Wide_and_narrow_data)- or [tidy](https://en.wikipedia.org/wiki/Tidy_data) form. 
+
+`covmobility` provides the following: 
+
+- Data from [Apple](http://apple.com/covid19) on relative trends in mobility in cities and countries since mid-January of 2020, based on usage of their Maps application.
+- Data from [Google](https://www.google.com/covid19/mobility/data_documentation.html) on relative trends in mobility in regions and countries since mid-January of 2020, based on location and activity information.
+
+## Caveat Emptor
+
+**The data are provided as-is**. More information about collection methods, scope, limits, and possible sources of error in the data can be found in the documentation provided by their respective sources.
+
+## Installation
+
+There are two ways to install the `covmobility` package. 
+
+### Install direct from GitHub
+
+You can install covmobility from [GitHub](https://github.com/kjhealy/covmobility) with:
+
+``` r
+remotes::install_github("kjhealy/covmobility")
+```
+
+### Installation using `drat`
+
+While using `install_github()` works just fine, it would be nicer to be able to just type `install.packages("covmobility")` or `update.packages("covmobility")` in the ordinary way. We can do this using Dirk Eddelbuettel's [drat](http://eddelbuettel.github.io/drat/DratForPackageUsers.html) package. Drat provides a convenient way to make R aware of package repositories other than CRAN.
+
+First, install `drat`:
+
+```{r drat, eval = FALSE}
+if (!require("drat")) {
+    install.packages("drat")
+    library("drat")
+}
+```
+
+Then use `drat` to tell R about the repository where `covmobility` is hosted:
+
+```{r drat-covmobility}
+drat::addRepo("kjhealy")
+```
+
+You can now install `covmobility`:
+
+```{r covmobility-drat, eval = FALSE}
+install.packages("covmobility")
+```
+
+To ensure that the `covmobility` repository is always available, you can add the following line to your `.Rprofile` or `.Rprofile.site` file:
+
+```{r rprofile}
+drat::addRepo("kjhealy")
+```
+
+With that in place you'll be able to do `install.packages("covmobility")` or `update.packages("covmobility")` and have everything work as you'd expect. 
+
+Note that my drat repository only contains data packages that are not on CRAN, so you will never be in danger of grabbing the wrong version of any other package.
+
+## Loading the Data
+
+```{r load}
+library(tidyverse) # Optional but strongly recommended
+library(covmobility)
+```
+
+```{r}
+apple_mobility %>%
+  filter(region == "New York City", transportation_type == "walking")
+```
+
+
+## Documentation and Summary Codebook 
+
+To learn more about the different datasets available, consult the documentation or, equivalently, [the package website](https://kjhealy.github.io/covmobility/articles/covmobility.html). For a codebook-like summary of the variables in each table, see the [Codebook vignette](https://kjhealy.github.io/covmobility/articles/codebook.html)
+
+## Citing the `covmobility` package
+
+To cite the package use the following:
+
+```{r citation}
+citation("covmobility")
+```
+
+Please be sure to also cite the specific data sources, as described in the documentation for each dataset. 
+

@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis\.yml$
+^\.github$
+^_sinewconfig.yml$
+^_pkgdown.yml$
+^data-raw
+^README.Rmd$
+^LICENSE.md$

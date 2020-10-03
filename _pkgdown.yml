@@ -1,0 +1,49 @@
+destination: docs
+authors:
+  Kieran Healy:
+    href: http://kieranhealy.org
+
+url: https://kjhealy.github.io/covmobility
+
+template:
+  params:
+    bootswatch: cosmo
+
+reference:
+  - title: "Activity Data"
+    desc: Data from Apple and Google.
+    contents:
+      - apple_mobility
+      - google_mobility
+  - title: "Other"
+    desc: Other useful tables
+    contents:
+      - country_codes
+  - title: "Internal Functions"
+    desc: These functions are for package housekeeping only
+    contents:
+      - starts_with("%")
+      - fmt_nc
+      - fmt_nr
+      - tabular
+
+articles:
+- title: Datasets
+  navbar: ~
+  contents:
+  - codebook
+
+navbar:
+  right:
+   - icon: fa-github
+     href: https://github.com/kjhealy/covmobility
+
+figures:
+  dev: grDevices::png
+  dpi: 200
+  dev.args: []
+  fig.ext: png
+  fig.width: 7.2916667
+  fig.height: ~
+  fig.retina: 2
+  fig.asp: 1.618
