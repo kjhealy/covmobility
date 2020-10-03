@@ -77,25 +77,42 @@ Note that my drat repository only contains data packages that are not on CRAN, s
 
 ```r
 library(tidyverse) # Optional but strongly recommended
-#> ── Attaching packages ─────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+#> ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 #> ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 #> ✓ tibble  3.0.3     ✓ dplyr   1.0.2
 #> ✓ tidyr   1.1.2     ✓ stringr 1.4.0
 #> ✓ readr   1.3.1     ✓ forcats 0.5.0
-#> ── Conflicts ────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+#> ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter()  masks stats::filter()
 #> x purrr::is_null() masks testthat::is_null()
 #> x dplyr::lag()     masks stats::lag()
 #> x dplyr::matches() masks tidyr::matches(), testthat::matches()
 library(covmobility)
-#> Error in library(covmobility): there is no package called 'covmobility'
+#> 
+#> Attaching package: 'covmobility'
+#> The following object is masked from 'package:kjhutils':
+#> 
+#>     %nin%
 ```
 
 
 ```r
 apple_mobility %>%
   filter(region == "New York City", transportation_type == "walking")
-#> Error in eval(lhs, parent, parent): object 'apple_mobility' not found
+#> # A tibble: 263 x 8
+#>    geo_type region transportation_… alternative_name sub_region country
+#>    <chr>    <chr>  <chr>            <chr>            <chr>      <chr>  
+#>  1 city     New Y… walking          NYC              New York   United…
+#>  2 city     New Y… walking          NYC              New York   United…
+#>  3 city     New Y… walking          NYC              New York   United…
+#>  4 city     New Y… walking          NYC              New York   United…
+#>  5 city     New Y… walking          NYC              New York   United…
+#>  6 city     New Y… walking          NYC              New York   United…
+#>  7 city     New Y… walking          NYC              New York   United…
+#>  8 city     New Y… walking          NYC              New York   United…
+#>  9 city     New Y… walking          NYC              New York   United…
+#> 10 city     New Y… walking          NYC              New York   United…
+#> # … with 253 more rows, and 2 more variables: date <date>, score <dbl>
 ```
 
 
@@ -110,7 +127,21 @@ To cite the package use the following:
 
 ```r
 citation("covmobility")
-#> Error in citation("covmobility"): there is no package called 'covmobility'
+#> 
+#> To cite the package `covmobility` in publications use:
+#> 
+#>   Kieran Healy. 2020. covmobility: Mobility Data from Apple and Google.
+#>   R package version 0.1.0, <http://kjhealy.github.io/covmobility>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {covmobility: Mobility Data from Apple and Google},
+#>     author = {Kieran Healy},
+#>     year = {2020},
+#>     note = {R package version 0.1.0},
+#>     url = {http://kjhealy.github.io/covmobility},
+#>   }
 ```
 
 Please be sure to also cite the specific data sources, as described in the documentation for each dataset. 
