@@ -2,7 +2,7 @@
 title: "Get Started with covmobility"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{covdata}
+  %\VignetteIndexEntry{covmobility}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Loading the Package
 
-The `covdata` package aims to make COVID-19-related data from Apple and Google easily accessible to users of R. Once the package is installed, load it in the usual way:
+The `covmobility` package aims to make COVID-19-related data from Apple and Google easily accessible to users of R. Once the package is installed, load it in the usual way:
 
 ```{r setup}
 library(tidyverse) 
