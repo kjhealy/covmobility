@@ -221,16 +221,16 @@ apple_mobility <- get_apple_data() %>%
 
 ## Google Mobility Data
 
-# google_mobility <- get_google_data() %>%
-#   rename(iso3166_2 = iso_3166_2_code,
-#     retail = retail_and_recreation_percent_change_from_baseline,
-#          grocery = grocery_and_pharmacy_percent_change_from_baseline,
-#          parks = parks_percent_change_from_baseline,
-#          transit = transit_stations_percent_change_from_baseline,
-#          workplaces = workplaces_percent_change_from_baseline,
-#          residential = residential_percent_change_from_baseline) %>%
-#   pivot_longer(retail:residential, names_to = "type", values_to = "pct_diff")
-#
+google_mobility <- get_google_data() %>%
+  rename(iso3166_2 = iso_3166_2_code,
+    retail = retail_and_recreation_percent_change_from_baseline,
+         grocery = grocery_and_pharmacy_percent_change_from_baseline,
+         parks = parks_percent_change_from_baseline,
+         transit = transit_stations_percent_change_from_baseline,
+         workplaces = workplaces_percent_change_from_baseline,
+         residential = residential_percent_change_from_baseline) %>%
+  pivot_longer(retail:residential, names_to = "type", values_to = "pct_diff")
+
 
 ### --------------------------------------------------------------------------------------
 ### Write out the data objects
