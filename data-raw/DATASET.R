@@ -5,8 +5,6 @@ library(lubridate)
 library(here)
 library(janitor)
 library(socviz)
-library(ggrepel)
-library(paletteer)
 
 ## Check for data/ dir in data-raw
 ifelse(!dir.exists(here("data-raw/data")),
@@ -238,7 +236,7 @@ google_mobility <- get_google_data() %>%
 
 ## Apple and Google
 usethis::use_data(apple_mobility, overwrite = TRUE, compress = "xz")
-# usethis::use_data(google_mobility, overwrite = TRUE, compress = "xz")
+usethis::use_data(google_mobility, overwrite = TRUE, compress = "xz")
 
 ## Country codes
 usethis::use_data(country_codes, overwrite = TRUE, compress = "xz")
