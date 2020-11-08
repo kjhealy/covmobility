@@ -59,7 +59,7 @@ if (!require("drat")) {
 
 Then use `drat` to tell R about the repository where `covmobility` is hosted:
 
-```{r drat-covmobility}
+```{r drat-covmobility, eval = FALSE}
 drat::addRepo("kjhealy")
 ```
 
@@ -71,7 +71,7 @@ install.packages("covmobility")
 
 To ensure that the `covmobility` repository is always available, you can add the following line to your `.Rprofile` or `.Rprofile.site` file:
 
-```{r rprofile}
+```{r rprofile, eval = FALSE}
 drat::addRepo("kjhealy")
 ```
 
