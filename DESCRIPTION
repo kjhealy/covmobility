@@ -1,7 +1,7 @@
 Package: covmobility
 Type: Package
 Title: COVID-19-related Mobility Data from Apple and Google
-Version: 0.1.3
+Version: 0.1.5
 Authors@R: 
     person(given = "Kieran",
            family = "Healy",
@@ -18,7 +18,8 @@ RoxygenNote: 7.1.1
 URL: https://github.com/kjhealy/covmobility
 BugReports: https://github.com/kjhealy/covmobility/issues
 Imports: dplyr, magrittr, tidyr
-Suggests: 
+Suggests:
+    drat,
     ggforce,
     ggrepel,
     lubridate,
