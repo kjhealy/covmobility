@@ -1,6 +1,8 @@
 ## Testing the datasets to see if they are as expected
 context("Validating package data objects")
 library(covmobility)
+data(apple_mobility)
+data(google_mobility)
 
 
 ## apple_mobility
