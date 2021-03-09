@@ -9,7 +9,9 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  cache = TRUE,
   collapse = TRUE,
+  cache.lazy = FALSE,
   comment = "#>"
 )
 ```
@@ -26,12 +28,14 @@ This vignette provides an overview of the contents of each table of data in the 
 ## Mobility Data from [Apple](http://apple.com/covid19) 
 
 ```{r}
+data(apple_mobility)
 skimr::skim(apple_mobility)
 ```
 
 ## Mobilty Data from [Google](https://www.google.com/covid19/mobility/data_documentation.html) 
 
 ```{r}
+data(google_mobility)
 skimr::skim(google_mobility)
 ```
 
@@ -40,6 +44,7 @@ skimr::skim(google_mobility)
 ### Country Codes
 
 ```{r}
+data(country_codes)
 country_codes %>%
   dplyr::ungroup() %>%
   skimr::skim()

@@ -1,6 +1,6 @@
 #' @title Country Names and ISO codes
 #' @description Convenience table of country names and their abbreviated names
-#' @format A data frame with `r fmt_nr(country_codes)` rows and `r fmt_nc(country_codes)` variables:
+#' @format A data frame with `r data(country_codes); fmt_nr(country_codes)` rows and `r data(country_codes); fmt_nc(country_codes)` variables:
 #' \describe{
 #'   \item{\code{iso2}}{character ISO 2 designation}
 #'   \item{\code{iso3}}{character ISO 3 designation}
@@ -10,6 +10,7 @@
 #' @details
 #'
 #' ```{r, results = "asis", echo = FALSE}
+#' data(country_codes)
 #' skimr::skim(dplyr::ungroup(country_codes))
 #' ```
 #'
@@ -21,7 +22,7 @@
 ## Apple Mobility Data
 #' @title Apple Mobility Data
 #' @description Data from Apple Maps on relative changes in mobility in various cities and countries.
-#' @format A data frame with `r fmt_nr(apple_mobility)` rows and `r fmt_nc(apple_mobility)` variables:
+#' @format A data frame with `r data(apple_mobility); fmt_nr(apple_mobility)` rows and `r data(apple_mobility); fmt_nc(apple_mobility)` variables:
 #' \describe{
 #'   \item{\code{geo_type}}{character Type geographical unit. Values: city or country/region}
 #'   \item{\code{region}}{character Name of geographical unit.}
@@ -34,6 +35,7 @@
 #'}
 #' @details
 #' ```{r, results = "asis", echo = FALSE}
+#' data(apple_mobility)
 #' skimr::skim(apple_mobility)
 #' ```
 #'
@@ -47,7 +49,7 @@
 ## Google Mobility Data
 #' @title Google Mobility Data
 #' @description Data from Google's Community Mobility Reports on relative changes in movement trends by location type.
-#' @format A data frame with `r fmt_nr(google_mobility)` rows and `r fmt_nc(google_mobility)` variables:
+#' @format A data frame with `r data(google_mobility); fmt_nr(google_mobility)` rows and `r data(google_mobility); fmt_nc(google_mobility)` variables:
 #' \describe{
 #'   \item{\code{country_region_code}}{character Country Code}
 #'   \item{\code{country_region}}{character Country or Region name}
@@ -56,16 +58,21 @@
 #'   \item{\code{metro_area}}{Metropolitan area name}
 #'   \item{\code{iso3166_2}}{character ISO 3166-2 Country/Region code}
 #'   \item{\code{census_fips_code}}{character US Census FIPS code}
+#'   \item{\code{place_id}}{character Place ID (hashed)}
 #'   \item{\code{date}}{double Date in yyyy-mm-dd format}
 #'   \item{\code{type}}{character Type of location. Values are retail, grocery (and pharmacy), parts, transit (hubs/stations), workplaces, and residential}
 #'   \item{\code{pct_diff}}{integer Percent change from baseline activity}
 #'}
 #' @details
 #' ```{r, results = "asis", echo = FALSE}
+#' data(google_mobility)
 #' skimr::skim(google_mobility)
 #' ```
 #'
-#' Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users. As with all samples, this may or may not represent the exact behavior of a wider population.
+#' Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users.
+#' As with all samples, this may or may not represent the exact behavior of a wider population. Google updated the way we calculate changes for Groceries & pharmacy, Retail & recreation, Transit stations, and Parks categories. For regions published before May 2020, the data may contain a consistent shift either up or down that starts between April 11–18, 2020.
+#' On October 5, 2020, Google added an improvement to the dataset to ensure consistent data reporting in the Groceries & pharmacy, Retail & recreation, Transit, Parks, and Workplaces categories. The update applies to all regions, starting on August 17, 2020. For more detailed information on considerations to bear in mind before using this data,
+#' see [this overview from Google](https://support.google.com/covid19-mobility/answer/9824897?hl=en&ref_topic=9822927).
 #' @author Kieran Healy
 #' @source Google LLC "Google COVID-19 Community Mobility Reports." https://www.google.com/covid19/mobility/ Accessed: `r Sys.Date()`
 "google_mobility"

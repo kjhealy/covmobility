@@ -7,6 +7,8 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  cache = TRUE,
+  cache.lazy = FALSE,
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
@@ -87,6 +89,7 @@ library(covmobility)
 ```
 
 ```{r}
+data(apple_mobility)
 apple_mobility %>%
   filter(region == "New York City", transportation_type == "walking")
 ```

@@ -5,7 +5,7 @@
 \alias{google_mobility}
 \title{Google Mobility Data}
 \format{
-A data frame with 17,962,938 rows and 10 variables:
+A data frame with 27,094,812 rows and 11 variables:
 \describe{
 \item{\code{country_region_code}}{character Country Code}
 \item{\code{country_region}}{character Country or Region name}
@@ -14,13 +14,14 @@ A data frame with 17,962,938 rows and 10 variables:
 \item{\code{metro_area}}{Metropolitan area name}
 \item{\code{iso3166_2}}{character ISO 3166-2 Country/Region code}
 \item{\code{census_fips_code}}{character US Census FIPS code}
+\item{\code{place_id}}{character Place ID (hashed)}
 \item{\code{date}}{double Date in yyyy-mm-dd format}
 \item{\code{type}}{character Type of location. Values are retail, grocery (and pharmacy), parts, transit (hubs/stations), workplaces, and residential}
 \item{\code{pct_diff}}{integer Percent change from baseline activity}
 }
 }
 \source{
-Google LLC "Google COVID-19 Community Mobility Reports." https://www.google.com/covid19/mobility/ Accessed: 2020-11-09
+Google LLC "Google COVID-19 Community Mobility Reports." https://www.google.com/covid19/mobility/ Accessed: 2021-03-09
 }
 \usage{
 google_mobility
@@ -32,44 +33,48 @@ Data from Google's Community Mobility Reports on relative changes in movement tr
 Table: Data summary\tabular{ll}{
     \tab  \cr
    Name \tab google_mobility \cr
-   Number of rows \tab 17962938 \cr
-   Number of columns \tab 10 \cr
+   Number of rows \tab 27094812 \cr
+   Number of columns \tab 11 \cr
    _______________________ \tab  \cr
    Column type frequency: \tab  \cr
-   character \tab 8 \cr
    Date \tab 1 \cr
+   character \tab 9 \cr
    numeric \tab 1 \cr
    ________________________ \tab  \cr
    Group variables \tab None \cr
 }
 
 
-\strong{Variable type: character}\tabular{lrrrrrrr}{
-   skim_variable \tab n_missing \tab complete_rate \tab min \tab max \tab empty \tab n_unique \tab whitespace \cr
-   country_region_code \tab 11454 \tab 1.00 \tab 2 \tab 2 \tab 0 \tab 134 \tab 0 \cr
-   country_region \tab 0 \tab 1.00 \tab 4 \tab 22 \tab 0 \tab 135 \tab 0 \cr
-   sub_region_1 \tab 313458 \tab 0.98 \tab 3 \tab 74 \tab 0 \tab 1860 \tab 0 \cr
-   sub_region_2 \tab 3045432 \tab 0.83 \tab 2 \tab 56 \tab 0 \tab 9913 \tab 0 \cr
-   metro_area \tab 17861178 \tab 0.01 \tab 21 \tab 34 \tab 0 \tab 65 \tab 0 \cr
-   iso3166_2 \tab 14693226 \tab 0.18 \tab 4 \tab 6 \tab 0 \tab 2224 \tab 0 \cr
-   census_fips_code \tab 14082666 \tab 0.22 \tab 5 \tab 5 \tab 0 \tab 2833 \tab 0 \cr
-   type \tab 0 \tab 1.00 \tab 5 \tab 11 \tab 0 \tab 6 \tab 0 \cr
+\strong{Variable type: Date}\tabular{lrrlllr}{
+   skim_variable \tab n_missing \tab complete_rate \tab min \tab max \tab median \tab n_unique \cr
+   date \tab 0 \tab 1 \tab 2020-02-15 \tab 2021-03-05 \tab 2020-09-01 \tab 385 \cr
 }
 
 
-\strong{Variable type: Date}\tabular{lrrlllr}{
-   skim_variable \tab n_missing \tab complete_rate \tab min \tab max \tab median \tab n_unique \cr
-   date \tab 0 \tab 1 \tab 2020-02-15 \tab 2020-11-03 \tab 2020-06-24 \tab 263 \cr
+\strong{Variable type: character}\tabular{lrrrrrrr}{
+   skim_variable \tab n_missing \tab complete_rate \tab min \tab max \tab empty \tab n_unique \tab whitespace \cr
+   country_region_code \tab 17244 \tab 1.00 \tab 2 \tab 2 \tab 0 \tab 134 \tab 0 \cr
+   country_region \tab 0 \tab 1.00 \tab 4 \tab 22 \tab 0 \tab 135 \tab 0 \cr
+   sub_region_1 \tab 459858 \tab 0.98 \tab 3 \tab 74 \tab 0 \tab 1860 \tab 0 \cr
+   sub_region_2 \tab 4500534 \tab 0.83 \tab 2 \tab 56 \tab 0 \tab 9915 \tab 0 \cr
+   metro_area \tab 26945472 \tab 0.01 \tab 21 \tab 34 \tab 0 \tab 65 \tab 0 \cr
+   iso3166_2 \tab 22258770 \tab 0.18 \tab 4 \tab 6 \tab 0 \tab 2224 \tab 0 \cr
+   census_fips_code \tab 21336414 \tab 0.21 \tab 5 \tab 5 \tab 0 \tab 2838 \tab 0 \cr
+   place_id \tab 48912 \tab 1.00 \tab 27 \tab 27 \tab 0 \tab 13249 \tab 0 \cr
+   type \tab 0 \tab 1.00 \tab 5 \tab 11 \tab 0 \tab 6 \tab 0 \cr
 }
 
 
 \strong{Variable type: numeric}\tabular{lrrrrrrrrrl}{
    skim_variable \tab n_missing \tab complete_rate \tab mean \tab sd \tab p0 \tab p25 \tab p50 \tab p75 \tab p100 \tab hist \cr
-   pct_diff \tab 6745078 \tab 0.62 \tab -13.05 \tab 33.3 \tab -100 \tab -32 \tab -10 \tab 5 \tab 1206 \tab ▇▁▁▁▁ \cr
+   pct_diff \tab 10131130 \tab 0.63 \tab -13.02 \tab 31.05 \tab -100 \tab -31 \tab -10 \tab 5 \tab 1206 \tab ▇▁▁▁▁ \cr
 }
 
 
-Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users. As with all samples, this may or may not represent the exact behavior of a wider population.
+Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users.
+As with all samples, this may or may not represent the exact behavior of a wider population. Google updated the way we calculate changes for Groceries & pharmacy, Retail & recreation, Transit stations, and Parks categories. For regions published before May 2020, the data may contain a consistent shift either up or down that starts between April 11–18, 2020.
+On October 5, 2020, Google added an improvement to the dataset to ensure consistent data reporting in the Groceries & pharmacy, Retail & recreation, Transit, Parks, and Workplaces categories. The update applies to all regions, starting on August 17, 2020. For more detailed information on considerations to bear in mind before using this data,
+see \href{https://support.google.com/covid19-mobility/answer/9824897?hl=en&ref_topic=9822927}{this overview from Google}.
 }
 \author{
 Kieran Healy

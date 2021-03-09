@@ -11,7 +11,7 @@
 
 ## About the package
 
-`covmobility` is a data package for R that collects and bundles datasets related to [the COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) released by Apple and Google. The data are current as of Monday, November  9, 2020. Minimal post-processing of the data has been done in comparison to the original sources, beyond conversion to [tibbles](https://tibble.tidyverse.org) and transformation into [narrow](https://en.wikipedia.org/wiki/Wide_and_narrow_data)- or [tidy](https://en.wikipedia.org/wiki/Tidy_data) form. 
+`covmobility` is a data package for R that collects and bundles datasets related to [the COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) released by Apple and Google. The data are current as of Tuesday, March  9, 2021. Minimal post-processing of the data has been done in comparison to the original sources, beyond conversion to [tibbles](https://tibble.tidyverse.org) and transformation into [narrow](https://en.wikipedia.org/wiki/Wide_and_narrow_data)- or [tidy](https://en.wikipedia.org/wiki/Tidy_data) form. 
 
 `covmobility` provides the following: 
 
@@ -82,7 +82,7 @@ library(tidyverse) # Optional but strongly recommended
 #> ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 #> ✓ tibble  3.0.4     ✓ dplyr   1.0.2
 #> ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-#> ✓ readr   1.3.1     ✓ forcats 0.5.0
+#> ✓ readr   1.4.0     ✓ forcats 0.5.0
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter()  masks stats::filter()
 #> x purrr::is_null() masks testthat::is_null()
@@ -98,6 +98,7 @@ library(covmobility)
 
 
 ```r
+data(apple_mobility)
 apple_mobility %>%
   filter(region == "New York City", transportation_type == "walking")
 #> # A tibble: 263 x 8
