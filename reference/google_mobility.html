@@ -45,6 +45,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -56,9 +58,15 @@
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -72,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covmobility</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.8</span>
       </span>
     </div>
 
@@ -103,7 +111,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/kjhealy/covmobility">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -134,7 +142,7 @@
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 17,130,534 rows and 10 variables:</p><dl>
+    <p>A data frame with 27,094,812 rows and 11 variables:</p><dl>
 <dt><code>country_region_code</code></dt><dd><p>character Country Code</p></dd>
 <dt><code>country_region</code></dt><dd><p>character Country or Region name</p></dd>
 <dt><code>sub_region_1</code></dt><dd><p>character Subregion (e.g. US state) name</p></dd>
@@ -142,6 +150,7 @@
 <dt><code>metro_area</code></dt><dd><p>Metropolitan area name</p></dd>
 <dt><code>iso3166_2</code></dt><dd><p>character ISO 3166-2 Country/Region code</p></dd>
 <dt><code>census_fips_code</code></dt><dd><p>character US Census FIPS code</p></dd>
+<dt><code>place_id</code></dt><dd><p>character Place ID (hashed)</p></dd>
 <dt><code>date</code></dt><dd><p>double Date in yyyy-mm-dd format</p></dd>
 <dt><code>type</code></dt><dd><p>character Type of location. Values are retail, grocery (and pharmacy), parts, transit (hubs/stations), workplaces, and residential</p></dd>
 <dt><code>pct_diff</code></dt><dd><p>integer Percent change from baseline activity</p></dd>
@@ -150,18 +159,18 @@
 
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <p>Google LLC "Google COVID-19 Community Mobility Reports." https://www.google.com/covid19/mobility/ Accessed: 2020-11-02</p>
+    <p>Google LLC "Google COVID-19 Community Mobility Reports." https://www.google.com/covid19/mobility/ Accessed: 2021-03-09</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Table: Data summary</p><table class='table'>
 <tr><td></td><td></td></tr>
 <tr><td>Name</td><td>google_mobility</td></tr>
-<tr><td>Number of rows</td><td>17130534</td></tr>
-<tr><td>Number of columns</td><td>10</td></tr>
+<tr><td>Number of rows</td><td>27094812</td></tr>
+<tr><td>Number of columns</td><td>11</td></tr>
 <tr><td>_______________________</td><td></td></tr>
 <tr><td>Column type frequency:</td><td></td></tr>
 <tr><td>Date</td><td>1</td></tr>
-<tr><td>character</td><td>8</td></tr>
+<tr><td>character</td><td>9</td></tr>
 <tr><td>numeric</td><td>1</td></tr>
 <tr><td>________________________</td><td></td></tr>
 <tr><td>Group variables</td><td>None</td></tr>
@@ -171,20 +180,21 @@
 
 <p><strong>Variable type: Date</strong></p><table class='table'>
 <tr><td>skim_variable</td><td>n_missing</td><td>complete_rate</td><td>min</td><td>max</td><td>median</td><td>n_unique</td></tr>
-<tr><td>date</td><td>0</td><td>1</td><td>2020-02-15</td><td>2020-10-27</td><td>2020-06-20</td><td>256</td></tr>
+<tr><td>date</td><td>0</td><td>1</td><td>2020-02-15</td><td>2021-03-05</td><td>2020-09-01</td><td>385</td></tr>
 </table>
 
 
 
 <p><strong>Variable type: character</strong></p><table class='table'>
 <tr><td>skim_variable</td><td>n_missing</td><td>complete_rate</td><td>min</td><td>max</td><td>empty</td><td>n_unique</td><td>whitespace</td></tr>
-<tr><td>country_region_code</td><td>11130</td><td>1.00</td><td>2</td><td>2</td><td>0</td><td>134</td><td>0</td></tr>
+<tr><td>country_region_code</td><td>17244</td><td>1.00</td><td>2</td><td>2</td><td>0</td><td>134</td><td>0</td></tr>
 <tr><td>country_region</td><td>0</td><td>1.00</td><td>4</td><td>22</td><td>0</td><td>135</td><td>0</td></tr>
-<tr><td>sub_region_1</td><td>305058</td><td>0.98</td><td>3</td><td>74</td><td>0</td><td>1859</td><td>0</td></tr>
-<tr><td>sub_region_2</td><td>2962080</td><td>0.83</td><td>2</td><td>56</td><td>0</td><td>9682</td><td>0</td></tr>
-<tr><td>metro_area</td><td>17031504</td><td>0.01</td><td>21</td><td>34</td><td>0</td><td>65</td><td>0</td></tr>
-<tr><td>iso3166_2</td><td>14065740</td><td>0.18</td><td>4</td><td>6</td><td>0</td><td>2147</td><td>0</td></tr>
-<tr><td>census_fips_code</td><td>13357614</td><td>0.22</td><td>5</td><td>5</td><td>0</td><td>2833</td><td>0</td></tr>
+<tr><td>sub_region_1</td><td>459858</td><td>0.98</td><td>3</td><td>74</td><td>0</td><td>1860</td><td>0</td></tr>
+<tr><td>sub_region_2</td><td>4500534</td><td>0.83</td><td>2</td><td>56</td><td>0</td><td>9915</td><td>0</td></tr>
+<tr><td>metro_area</td><td>26945472</td><td>0.01</td><td>21</td><td>34</td><td>0</td><td>65</td><td>0</td></tr>
+<tr><td>iso3166_2</td><td>22258770</td><td>0.18</td><td>4</td><td>6</td><td>0</td><td>2224</td><td>0</td></tr>
+<tr><td>census_fips_code</td><td>21336414</td><td>0.21</td><td>5</td><td>5</td><td>0</td><td>2838</td><td>0</td></tr>
+<tr><td>place_id</td><td>48912</td><td>1.00</td><td>27</td><td>27</td><td>0</td><td>13249</td><td>0</td></tr>
 <tr><td>type</td><td>0</td><td>1.00</td><td>5</td><td>11</td><td>0</td><td>6</td><td>0</td></tr>
 </table>
 
@@ -192,12 +202,15 @@
 
 <p><strong>Variable type: numeric</strong></p><table class='table'>
 <tr><td>skim_variable</td><td>n_missing</td><td>complete_rate</td><td>mean</td><td>sd</td><td>p0</td><td>p25</td><td>p50</td><td>p75</td><td>p100</td><td>hist</td></tr>
-<tr><td>pct_diff</td><td>6414234</td><td>0.63</td><td>-13.17</td><td>33.52</td><td>-100</td><td>-32</td><td>-10</td><td>5</td><td>1206</td><td>▇▁▁▁▁</td></tr>
+<tr><td>pct_diff</td><td>10131130</td><td>0.63</td><td>-13.02</td><td>31.05</td><td>-100</td><td>-31</td><td>-10</td><td>5</td><td>1206</td><td>▇▁▁▁▁</td></tr>
 </table>
 
 
 
-<p>Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users. As with all samples, this may or may not represent the exact behavior of a wider population.</p>
+<p>Location accuracy and the understanding of categorized places varies from region to region, so Google does not recommend using this data to compare changes between countries, or between regions with different characteristics (e.g. rural versus urban areas). Regions or categories are omitted if Google does not have have sufficient statistically significant levels of data for it. Changes for each day are compared to a baseline value for that day of the week. The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020. What data is included in the calculation depends on user settings, connectivity, and whether it meets our privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) we don’t show a change for the day. As a result, you may encounter empty fields for certain places and dates. We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users.
+As with all samples, this may or may not represent the exact behavior of a wider population. Google updated the way we calculate changes for Groceries &amp; pharmacy, Retail &amp; recreation, Transit stations, and Parks categories. For regions published before May 2020, the data may contain a consistent shift either up or down that starts between April 11–18, 2020.
+On October 5, 2020, Google added an improvement to the dataset to ensure consistent data reporting in the Groceries &amp; pharmacy, Retail &amp; recreation, Transit, Parks, and Workplaces categories. The update applies to all regions, starting on August 17, 2020. For more detailed information on considerations to bear in mind before using this data,
+see <a href='https://support.google.com/covid19-mobility/answer/9824897?hl=en&amp;ref_topic=9822927'>this overview from Google</a>.</p>
     <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
     <p>Kieran Healy</p>
@@ -213,11 +226,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://kieranhealy.org'>Kieran Healy</a>.</p>
+  <p><p>Developed by <a href="http://kieranhealy.org" class="external-link">Kieran Healy</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
@@ -225,6 +238,8 @@
 
   
 
+
+  
 
   </body>
 </html>

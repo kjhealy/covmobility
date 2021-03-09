@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">covmobility</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.8</span>
       </span>
     </div>
 
@@ -61,8 +63,8 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kjhealy/covmobility">
-    <span class="fa fa-github"></span>
+  <a href="https://github.com/kjhealy/covmobility" class="external-link">
+    <span class="fas fa-github"></span>
      
   </a>
 </li>
@@ -76,14 +78,13 @@
 
       
 
-      </header><script src="covmobility_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="covmobility_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="covmobility_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="covmobility_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Get Started with covmobility</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kjhealy/covmobility/blob/master/vignettes/covmobility.Rmd"><code>vignettes/covmobility.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/kjhealy/covmobility/blob/master/vignettes/covmobility.Rmd" class="external-link"><code>vignettes/covmobility.Rmd</code></a></small>
       <div class="hidden name"><code>covmobility.Rmd</code></div>
 
     </div>
@@ -94,19 +95,42 @@
 <h2 class="hasAnchor">
 <a href="#loading-the-package" class="anchor"></a>Loading the Package</h2>
 <p>The <code>covmobility</code> package aims to make COVID-19-related data from Apple and Google easily accessible to users of R. Once the package is installed, load it in the usual way:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> 
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span> 
 <span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</span>
-<span class="co">#&gt; ✔ ggplot2 3.3.2     ✔ purrr   0.3.4</span>
-<span class="co">#&gt; ✔ tibble  3.0.4     ✔ dplyr   1.0.2</span>
-<span class="co">#&gt; ✔ tidyr   1.1.2     ✔ stringr 1.4.0</span>
-<span class="co">#&gt; ✔ readr   1.4.0     ✔ forcats 0.5.0</span>
+<span class="co">#&gt; ✔ ggplot2 3.3.3     ✔ purrr   0.3.4</span>
+<span class="co">#&gt; ✔ tibble  3.1.0     ✔ dplyr   1.0.5</span>
+<span class="co">#&gt; ✔ tidyr   1.1.3     ✔ stringr 1.4.0</span>
+<span class="co">#&gt; ✔ readr   1.4.0     ✔ forcats 0.5.1</span>
 <span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span>
 <span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span>
 <span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kjhealy/covmobility">covmobility</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggforce.data-imaginist.com">ggforce</a></span><span class="op">)</span></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kjhealy/covmobility" class="external-link">covmobility</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggforce.data-imaginist.com" class="external-link">ggforce</a></span><span class="op">)</span></code></pre></div>
 <p>Loading the package makes two main datasets available for use. Because the data are in tibbles, the use of the <code>tidyverse</code> suite of packages is strongly recommended, though it is not required. If use the data objects as dataframes (i.e., without loading the <code>tidyverse</code> packages) you will need to re-encode some variables, most importantly <code>date</code> and <code>date-time</code> columns, for them to behave as expected.</p>
+</div>
+<div id="loading-the-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#loading-the-data" class="anchor"></a>Loading the Data</h2>
+<p>The datasets are large (especially <code>google_mobility</code>), so lazy loading of the tibbles is disabled by default. This means you will have to explicitly load them with <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code> once per session, as needed. For example, to load the small country codes table:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">country_codes</span><span class="op">)</span>
+<span class="va">country_codes</span>
+<span class="co">#&gt; # A tibble: 258 x 4</span>
+<span class="co">#&gt;    iso2  iso3  cname               continent    </span>
+<span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;               &lt;chr&gt;        </span>
+<span class="co">#&gt;  1 AF    AFG   Afghanistan         Asia         </span>
+<span class="co">#&gt;  2 AX    ALA   Åland Islands       &lt;NA&gt;         </span>
+<span class="co">#&gt;  3 AL    ALB   Albania             Europe       </span>
+<span class="co">#&gt;  4 DZ    DZA   Algeria             Africa       </span>
+<span class="co">#&gt;  5 AS    ASM   American Samoa      Oceania      </span>
+<span class="co">#&gt;  6 AD    AND   Andorra             Europe       </span>
+<span class="co">#&gt;  7 AO    AGO   Angola              Africa       </span>
+<span class="co">#&gt;  8 AI    AIA   Anguilla            North America</span>
+<span class="co">#&gt;  9 AQ    ATA   Antarctica          &lt;NA&gt;         </span>
+<span class="co">#&gt; 10 AG    ATG   Antigua and Barbuda North America</span>
+<span class="co">#&gt; # … with 248 more rows</span></code></pre></div>
+<p>The same applies to <code>apple_mobility</code> and <code>google_mobility</code>.</p>
 </div>
 <div id="exploring-the-data" class="section level2">
 <h2 class="hasAnchor">
@@ -122,41 +146,42 @@
 <h1 class="hasAnchor">
 <a href="#apples-mobility-data" class="anchor"></a>Apple’s Mobility Data</h1>
 <p>Apple has made aggregated data available on relative trends in use of its Maps data across a range of cities, regions, and countries. Data show relative volume of directions requests per country/region or city compared to a baseline volume on January 13th, 2020. Apple defines the day as midnight-to-midnight, Pacific time. Cities represent usage in greater metropolitan areas and are stably defined during this period. In many countries/regions and cities, relative volume has increased since January 13th, consistent with normal, seasonal usage of Apple Maps. Day of week effects are important to normalize as you use this data. Data that is sent from users’ devices to the Apple Maps service is associated with random, rotating identifiers so Apple does not have a profile of individual movements and searches. Apple Maps has no demographic information about its users, and so cannot make any statements about the representativeness of its usage against the overall population.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">apple_mobility</span><span class="op">)</span>
 <span class="va">apple_mobility</span>
-<span class="co">#&gt; # A tibble: 1,374,463 x 8</span>
-<span class="co">#&gt;    geo_type region transportation_… alternative_name sub_region country</span>
-<span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;  </span>
-<span class="co">#&gt;  1 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  2 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  3 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  4 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  5 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  6 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  7 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  8 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt;  9 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt; 10 country… Alban… driving          &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
-<span class="co">#&gt; # … with 1,374,453 more rows, and 2 more variables: date &lt;date&gt;, score &lt;dbl&gt;</span></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">vec_brks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">50</span>, <span class="fl">0</span>, <span class="fl">50</span><span class="op">)</span>
-<span class="va">vec_labs</span> <span class="op">&lt;-</span> <span class="va">vec_brks</span> <span class="op">+</span> <span class="fl">100</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">apple_cities</span> <span class="op">&lt;-</span> <span class="va">apple_mobility</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">geo_type</span> <span class="op">==</span> <span class="st">"city"</span>, <span class="va">transportation_type</span> <span class="op">==</span> <span class="st">"driving"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<span class="co">#&gt; # A tibble: 1,970,220 x 8</span>
+<span class="co">#&gt;    geo_type       region  transportation_ty… alternative_name sub_region country</span>
+<span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;  </span>
+<span class="co">#&gt;  1 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  2 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  3 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  4 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  5 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  6 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  7 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  8 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt;  9 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt; 10 country/region Albania driving            &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;   </span>
+<span class="co">#&gt; # … with 1,970,210 more rows, and 2 more variables: date &lt;date&gt;, score &lt;dbl&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">vec_brks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">50</span>, <span class="fl">0</span>, <span class="fl">50</span><span class="op">)</span>
+<span class="va">vec_labs</span> <span class="op">&lt;-</span> <span class="va">vec_brks</span> <span class="op">+</span> <span class="fl">100</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">apple_cities</span> <span class="op">&lt;-</span> <span class="va">apple_mobility</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">geo_type</span> <span class="op">==</span> <span class="st">"city"</span>, <span class="va">transportation_type</span> <span class="op">==</span> <span class="st">"driving"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">mutate</span><span class="op">(</span>over_under <span class="op">=</span> <span class="va">score</span> <span class="op">&lt;</span> <span class="fl">100</span>, 
          score <span class="op">=</span> <span class="va">score</span> <span class="op">-</span> <span class="fl">100</span><span class="op">)</span> 
 
 <span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>
   <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">apple_cities</span>,
          mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">score</span>, 
                        group <span class="op">=</span> <span class="va">region</span>, color <span class="op">=</span> <span class="va">over_under</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"gray40"</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="va">vec_brks</span>, labels <span class="op">=</span> <span class="va">vec_labs</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"firebrick"</span>, <span class="st">"steelblue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html">facet_wrap_paginate</a></span><span class="op">(</span><span class="op">~</span> <span class="va">region</span>, nrow <span class="op">=</span> <span class="fl">5</span>, ncol <span class="op">=</span> <span class="fl">6</span>, page <span class="op">=</span> <span class="va">i</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"firebrick"</span>, <span class="st">"steelblue"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggforce.data-imaginist.com/reference/facet_wrap_paginate.html" class="external-link">facet_wrap_paginate</a></span><span class="op">(</span><span class="op">~</span> <span class="va">region</span>, nrow <span class="op">=</span> <span class="fl">5</span>, ncol <span class="op">=</span> <span class="fl">6</span>, page <span class="op">=</span> <span class="va">i</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">guides</span><span class="op">(</span>color <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Relative Mobility"</span>, title <span class="op">=</span> <span class="st">"Relative Trends in Apple Maps Usage for Driving, Selected Cities"</span>, 
                               subtitle <span class="op">=</span> <span class="st">"Data are indexed to 100 for each city's usage on January 13th 2020"</span>, 
@@ -165,7 +190,7 @@
   <span class="op">)</span>
   
 <span class="op">}</span>  
-<span class="co">#&gt; Warning: Removed 598 rows containing missing values (position_stack).</span></pre></div>
+<span class="co">#&gt; Warning: Removed 598 rows containing missing values (position_stack).</span></code></pre></div>
 <p><img src="covmobility_files/figure-html/apple-example-1-1.png" width="1200"></p>
 <pre><code>#&gt; Warning: Removed 598 rows containing missing values (position_stack).</code></pre>
 <p><img src="covmobility_files/figure-html/apple-example-1-2.png" width="1200"></p>
@@ -185,42 +210,6 @@
 <li>The datasets show trends over several months.</li>
 <li>What data is included in the calculation depends on user settings, connectivity, and whether it meets Google’s privacy threshold. If the privacy threshold isn’t met (when somewhere isn’t busy enough to ensure anonymity) no change is shown for the day.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="va">google_mobility</span>
-<span class="co">#&gt; # A tibble: 17,130,534 x 10</span>
-<span class="co">#&gt;    country_region_… country_region sub_region_1 sub_region_2 metro_area</span>
-<span class="co">#&gt;    &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     </span>
-<span class="co">#&gt;  1 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  2 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  3 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  4 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  5 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  6 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  7 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  8 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt;  9 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt; 10 AE               United Arab E… &lt;NA&gt;         &lt;NA&gt;         &lt;NA&gt;      </span>
-<span class="co">#&gt; # … with 17,130,524 more rows, and 5 more variables: iso3166_2 &lt;chr&gt;,</span>
-<span class="co">#&gt; #   census_fips_code &lt;chr&gt;, date &lt;date&gt;, type &lt;chr&gt;, pct_diff &lt;int&gt;</span></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="va">google_mobility</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">country_region_code</span> <span class="op">==</span> <span class="st">"US"</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">sub_region_1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">sub_region_2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">mutate</span><span class="op">(</span>type <span class="op">=</span> <span class="fu">tools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/tools/toTitleCase.html">toTitleCase</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">ggplot</span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">pct_diff</span>, 
-                       group <span class="op">=</span> <span class="va">sub_region_1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_line</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">"gray80"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_smooth</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">type</span>, group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">type</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Percent Change from Baseline"</span>, title <span class="op">=</span> <span class="st">"Relative Trends in Mobility for Kinds of Location in the US, by State"</span>, 
-                              subtitle <span class="op">=</span> <span class="st">"Data are relative to median activity between Jan 3rd and Feb 6th"</span>,
-       color <span class="op">=</span> <span class="st">"Location Type"</span>, 
-       caption <span class="op">=</span> <span class="st">"Data: Google. Graph: @kjhealy"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"top"</span>, 
-        strip.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fu">rel</span><span class="op">(</span><span class="fl">1.3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; `geom_smooth()` using method = 'gam' and formula 'y ~ s(x, bs = "cs")'</span>
-<span class="co">#&gt; Warning: Removed 576 rows containing non-finite values (stat_smooth).</span></pre></div>
-<p><img src="covmobility_files/figure-html/google-example-1.png" width="900"></p>
 </div>
   </div>
 
@@ -235,11 +224,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://kieranhealy.org">Kieran Healy</a>.</p>
+  <p></p>
+<p>Developed by <a href="http://kieranhealy.org" class="external-link external-link">Kieran Healy</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -247,6 +238,8 @@
 
   
 
+
+  
 
   </body>
 </html>
